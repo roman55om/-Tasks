@@ -138,17 +138,27 @@ void Task13()
 
     Console.WriteLine("Enter a number");
     int number = Convert.ToInt32(Console.ReadLine());
-    int thirdDigit = number%100;
-    if (number >= 100 || number <= -100)
+    int numberLength = 1;
+    int check = 10;
+    int extraNumber;
+    int thirdDigit;
+    while (number/check > 0)
     {
-        Console.WriteLine("The third digit is " + thirdDigit);
+        check = check * 10;
+        numberLength ++;
     }
-    
+    if (numberLength > 2)
+    {
+        int degree = numberLength - 3;
+        extraNumber = (number / Convert.ToInt32(Math.Pow(10, degree)))%100;
+        thirdDigit = extraNumber%10;
+        Console.WriteLine("The 3rd digit is " + thirdDigit);
+    }
     else
     {
         Console.WriteLine("The third digit does not exist ");
     }
-
+   
 }
 
 void Task15()
