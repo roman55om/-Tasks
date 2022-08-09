@@ -326,6 +326,24 @@ void Task23()
     Console.Write(Math.Pow(number, 3));
 
 }
+
+void Task24()
+{
+    //24. Write a program that calculates the sum of numbers from 1 to N
+
+    Console.WriteLine("Enter a number:");
+    int finishNumber = Convert.ToInt32(Console.ReadLine());
+    int startNumber = 1;
+    int sum = 0;
+
+    while (startNumber <= finishNumber)
+    {
+        sum = sum + startNumber;
+        startNumber++;
+    }
+
+    Console.WriteLine("The result is " + sum);
+}
 //Task9();
 //Task11();
 //Task12();
@@ -341,4 +359,5 @@ void Task23()
 //Task22();
 //Task19();
 //Task21A();
-Task23();
+//Task23();
+Task24();
