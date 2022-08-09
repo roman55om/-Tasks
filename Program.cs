@@ -185,6 +185,147 @@ void Task15()
 
 
 }
+
+void Task17()
+{
+    //17. Write a program which takes X and Y coordinates
+    // and defines to which quarter they belong. X,Y!= 0
+
+    Random random = new Random();
+    int x = random.Next(-10, 11);
+    int y = random.Next(-10, 11);
+    Console.WriteLine($"Point with coordinates ({x}, {y})");
+
+    if (x > 0 && y > 0) Console.WriteLine($"The point with coordinates ({x}, {y}) belongs to the 1st quarter");
+    else if (x < 0 && y > 0) Console.WriteLine($"The point with coordinates ({x}, {y}) belongs to the 2nd quarter");
+    else if (x < 0 && y < 0) Console.WriteLine($"The point with coordinates ({x}, {y}) belongs to the 3rd quarter");
+    else if (x > 0 && y < 0) Console.WriteLine($"The point with coordinates ({x}, {y}) belongs to the 4th quarter");
+    else Console.WriteLine("Wrong coordinates");
+
+}
+
+void Task18()
+{
+    //18. Write a program which defines the possible coordinates range basing on the quarter number entered
+
+    Console.WriteLine("Enter the quarter number");
+    int quarterNumber = Convert.ToInt32(Console.ReadLine());
+
+    if (quarterNumber == 1) 
+    {
+        Console.WriteLine("X from 1 to 999, Y from 1 to 999");
+    }    
+    else if (quarterNumber == 2) 
+    {
+        Console.WriteLine("X from -1 to -999, Y from 1 to 999");
+    }
+    else if (quarterNumber == 3) 
+    {
+        Console.WriteLine("X from -1 to -999, Y from -1 to -999");
+    }
+    else if (quarterNumber == 4) 
+    {
+        Console.WriteLine("X from 1 to 999, Y from -1 to -999");
+    }
+
+}
+
+void Task21()
+{
+    //21. Write a program which takes 2 dots as input and finds the lenght between them
+    Console.WriteLine("Enter the coordinates of the 1st dot");
+    int firstDotX = Convert.ToInt32(Console.ReadLine());
+    int firstDotY = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Enter the coordinates of the 2nd dot");
+    int secondDotX = Convert.ToInt32(Console.ReadLine());
+    int secondDotY = Convert.ToInt32(Console.ReadLine());
+
+    double length = Math.Sqrt(Math.Pow((secondDotX - firstDotX), 2) + Math.Pow((secondDotY - firstDotY), 2));
+
+    Console.WriteLine("The length between two dots is " + length);
+
+
+}
+
+void Task22()
+{
+    //22. Write a program which takes a number N and returns the square roots of the numbers from 1 to N.
+    /*int number = 1;
+    Console.WriteLine("Enter a number");
+    int finishNumber = Convert.ToInt32(Console.ReadLine());
+    int ArrayA[];
+    int ArrayB[];
+    while (number <= finishNumber)
+    {
+        ArrayA[] = ArrayA[] + number;
+        number ++;
+    }
+    Console.WriteLine ("The sequence is " + ArrayA[]);
+    ArrayB[] = Math.Pow(ArrayA[], 2);
+    Console.WriteLine ("Square root of the sequence is " + ArrayB[]);*/
+}
+
+void Task19()
+{
+    //19. Write a program that defines if the 5th digit number is a palindrome or not.
+
+    Console.WriteLine("Enter a 5-digit number");
+    int number = Convert.ToInt32(Console.ReadLine());
+
+    int fifthDigit = number%10;
+    int fourthDigit = (number%100) / 10;
+    int thirdDigit = (number%1000) / 100;
+    int secondDigit = (number%10000) / 1000;
+    int firstDigit = number/10000;
+
+    int numberTwo = (fifthDigit*10000 + fourthDigit*1000 + thirdDigit*100 + secondDigit*10 + firstDigit);
+
+    if (numberTwo == number) 
+    {
+        Console.WriteLine ("The number is a palindrome");
+    }    
+    else 
+    {
+        Console.WriteLine ("The number is not a palindrome");
+    }
+}
+
+void Task21A()
+{
+   //21A. Write a program which takes 2 dots as input and finds the lenght between them in 3D.
+   Console.WriteLine("Enter the coordinates of the 1st dot");
+    int firstDotX = Convert.ToInt32(Console.ReadLine());
+    int firstDotY = Convert.ToInt32(Console.ReadLine());
+    int firstDotZ = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Enter the coordinates of the 2nd dot");
+    int secondDotX = Convert.ToInt32(Console.ReadLine());
+    int secondDotY = Convert.ToInt32(Console.ReadLine());
+    int secondDotZ = Convert.ToInt32(Console.ReadLine());
+
+    double length = Math.Sqrt(Math.Pow(secondDotX - firstDotX, 2) + Math.Pow(secondDotY - firstDotY, 2) + Math.Pow(secondDotZ - firstDotZ, 2));
+
+    Console.WriteLine("The length between two dots is " + Math.Round(length, 2));
+
+}
+
+void Task23()
+{
+    int number = 1;
+    
+    Console.WriteLine("Enter a number");
+    int finishNumber = Convert.ToInt32(Console.ReadLine());
+
+    while (number < finishNumber)
+    {
+        Console.Write(Math.Pow(number, 3) + ", ");
+        number++;
+    }
+
+    Console.Write(Math.Pow(number, 3));
+
+}
 //Task9();
 //Task11();
 //Task12();
@@ -193,3 +334,11 @@ void Task15()
 //ExtraTask1();
 //Task13();
 //Task15();
+//for (int i = 1; i < 10; i++)
+//Task17();
+//Task18();
+//Task21();
+//Task22();
+//Task19();
+//Task21A();
+Task23();
