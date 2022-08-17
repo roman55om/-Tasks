@@ -144,7 +144,7 @@ void FillArray(int[] array)
 {
     Random random = new Random();
 
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < 8; i++)
     {
         array[i] = random.Next(-100, 100);
     }
@@ -152,7 +152,7 @@ void FillArray(int[] array)
 
 void PrintArray(int[] array)
 {
-    for (int i = 0; i < array.Length; i ++)
+    for (int i = 0; i < 8; i ++)
     {
         Console.Write(array[i] + " ");
     }
@@ -214,25 +214,34 @@ void Task29()
     Console.WriteLine("Unsorted array");
     PrintArray(array);
 
-    int i = 0;
-    int posMin = array[0];
-    int posMinIndex = 0;
-    int result;
+    int j = 0;
 
-    while (i<=array.Length)
+    while (j < size-1)
     {
-        if (Math.Abs(array[i]) < posMin)
+        int i = 0;
+        int posMax = 0;
+        int help = 0;
+
+        for (; i<size-j; help = array[posMax],
+        array[posMax] = array[size-1-j],
+        array[size-1-j] = help)
         {
-            posMin = array[i];
-            posMinIndex = i;
-            i++;
-            Console.Write(posMin + ",");
-        }  
-        else 
-        {
-            i++;
-        }  
+            if (Math.Abs(array[i]) > Math.Abs(array[posMax]))
+            {
+                posMax = i;
+                i++;
+            }  
+            else 
+            {
+                i++;
+            }
+  
+        }
+        
+        j+=1;
     }
+
+    PrintArray(array);
 
 }
 //FillArray();
@@ -243,4 +252,4 @@ void Task29()
 //ExtraTask1();
 //Task25();
 //Task27();
-//Task29();
+Task29();
